@@ -7,6 +7,21 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <title>Tirthankar Pal - Digital Business Card</title>
+
+    <!-- Open Graph / WhatsApp / iMessage / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Tirthankar Pal - Digital Business Card">
+    <meta property="og:description" content="Senior Principal Product Manager at Ribbon Communications">
+    <meta property="og:image" content="https://yourdomain.com/tp-blog-author-headshot.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tirthankar Pal - Digital Business Card">
+    <meta name="twitter:description" content="Senior Principal Product Manager at Ribbon Communications">
+    <meta name="twitter:image" content="https://yourdomain.com/tp-blog-author-headshot.png">
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
@@ -17,6 +32,7 @@
             --text-main: #4B4B4B;     /* Ribbon Grey */
             --text-muted: #666666;
             --border-color: #e9ecef;
+            --linkedin-color: #0A66C2;
         }
 
         * {
@@ -63,8 +79,8 @@
         }
 
         .company-logo {
-            height: 48px;
-            max-width: 220px;
+            height: 58px;
+            max-width: 260px;
             object-fit: contain;
         }
 
@@ -97,6 +113,23 @@
             font-size: 15px;
             font-weight: 600;
             margin: 0 0 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .designation-linkedin {
+            color: var(--linkedin-color);
+            font-size: 18px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: transform 0.15s ease;
+        }
+
+        .designation-linkedin:active {
+            transform: scale(1.15);
         }
 
         .btn-save-vcard {
@@ -156,29 +189,6 @@
             word-break: break-word;
             line-height: 1.3;
         }
-
-        .social-footer {
-            background-color: #f8f9fa;
-            padding: 18px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .social-footer a {
-            color: var(--primary-color);
-            font-size: 22px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 46px;
-            height: 46px;
-            border-radius: 50%;
-            background-color: #ffffff;
-            border: 1px solid var(--border-color);
-            text-decoration: none;
-        }
     </style>
 </head>
 <body>
@@ -191,7 +201,12 @@
     <div class="hero-section">
         <img src="tp-blog-author-headshot.png" alt="Tirthankar Pal" class="profile-pic">
         <h1 class="name">Tirthankar Pal</h1>
-        <p class="designation">Senior Principal Product Manager</p>
+        <div class="designation">
+            <span>Senior Principal Product Manager</span>
+            <a href="https://www.linkedin.com/in/tirthankarpal/" target="_blank" aria-label="LinkedIn Profile" class="designation-linkedin">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </div>
     </div>
 
     <button class="btn-save-vcard" onclick="downloadVCard()">
@@ -214,12 +229,6 @@
         <a href="https://rbbn.com" target="_blank" class="contact-item">
             <i class="fas fa-globe"></i>
             <span>www.rbbn.com</span>
-        </a>
-    </div>
-
-    <div class="social-footer">
-        <a href="https://www.linkedin.com/in/tirthankarpal/" target="_blank" aria-label="LinkedIn">
-            <i class="fab fa-linkedin-in"></i>
         </a>
     </div>
 </div>
