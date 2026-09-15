@@ -7,12 +7,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --accent-color: #3498db;
-            --bg-color: #e9ecef;
+            --primary-color: #7E00B9; /* Ribbon Purple */
+            --accent-color: #E90575;  /* Ribbon Cranberry */
+            --bg-color: #f4f4f6;
             --card-bg: #ffffff;
-            --text-main: #212529;
-            --text-muted: #6c757d;
+            --text-main: #4B4B4B;     /* Ribbon Grey */
+            --text-muted: #666666;
         }
         
         body {
@@ -23,6 +23,8 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
+            padding: 20px 0;
+            box-sizing: border-box;
         }
 
         .card-container {
@@ -36,22 +38,24 @@
         }
 
         .card-header {
-            background-color: var(--primary-color);
-            height: 100px;
+            background: linear-gradient(to right, #7E00B9, #C0059E, #E90575, #FF007F) top / 100% 6px no-repeat, #ffffff;
+            height: 90px;
             display: flex;
             justify-content: flex-end;
-            padding: 15px;
+            align-items: center;
+            padding: 15px 20px;
             box-sizing: border-box;
+            border-bottom: 1px solid #e9ecef;
         }
 
         .company-logo {
-            height: 35px;
-            max-width: 120px;
+            height: 38px;
+            max-width: 130px;
             object-fit: contain;
         }
 
         .profile-wrapper {
-            margin-top: -50px;
+            margin-top: -45px;
             position: relative;
         }
 
@@ -59,14 +63,14 @@
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            border: 4px solid var(--card-bg);
+            border: 4px solid #ffffff;
             object-fit: cover;
-            background-color: #dee2e6;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background-color: #f4f4f6;
+            box-shadow: 0 4px 12px rgba(75, 75, 75, 0.15);
         }
 
         .card-body {
-            padding: 15px 30px 25px;
+            padding: 15px 30px 20px;
         }
 
         .name {
@@ -81,7 +85,32 @@
             font-size: 15px;
             font-weight: 500;
             margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .btn-save {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 12px 0;
+            background: linear-gradient(135deg, #7E00B9 0%, #E90575 100%);
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 600;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(126, 0, 185, 0.25);
+            transition: opacity 0.2s, transform 0.2s;
             margin-bottom: 25px;
+        }
+
+        .btn-save:hover {
+            opacity: 0.95;
+            transform: translateY(-1px);
         }
 
         .contact-list {
@@ -141,18 +170,20 @@
 
 <div class="card-container">
     <div class="card-header">
-        <!-- Update the src attribute with the URL to your company logo -->
-        <img src="https://ribboncommunications.com/sites/default/files/rib_logo_hor_1_color_101-r-01.png" alt="Ribbon Communications" class="company-logo">
+        <img src="company-logo.png" alt="Ribbon Communications Logo" class="company-logo">
     </div>
     
     <div class="profile-wrapper">
-        <!-- Update the src attribute with the URL to your profile picture -->
-        <img src="tp-blog-author-headshot.png?text=Profile" alt="Tirthankar Pal" class="profile-pic">
+        <img src="tp-blog-author-headshot.png" alt="Tirthankar Pal" class="profile-pic">
     </div>
 
     <div class="card-body">
         <h1 class="name">Tirthankar Pal</h1>
         <p class="designation">Senior Principal Product Manager</p>
+
+        <button class="btn-save" onclick="downloadVCard()">
+            <i class="fas fa-user-plus"></i> Save Contact
+        </button>
 
         <ul class="contact-list">
             <li>
@@ -165,18 +196,42 @@
             </li>
             <li>
                 <i class="fas fa-globe"></i>
-                <a href="https://www.ribboncommunications.com" target="_blank">www.ribboncommunications.com</a>
+                <a href="https://rbbn.com" target="_blank">www.rbbn.com</a>
             </li>
         </ul>
     </div>
     
     <div class="social-links">
-        <!-- Update the href attribute with your LinkedIn profile URL -->
-        <a href="https://linkedin.com/in/tirthankarpal" target="_blank" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/tirthankarpal/" target="_blank" aria-label="LinkedIn">
             <i class="fab fa-linkedin"></i>
         </a>
     </div>
 </div>
+
+<script>
+function downloadVCard() {
+    const vcardData = `BEGIN:VCARD
+VERSION:3.0
+FN:Tirthankar Pal
+TITLE:Senior Principal Product Manager
+ORG:Ribbon Communications
+EMAIL;TYPE=WORK:tpal@rbbn.com
+TEL;TYPE=WORK:+19726921807
+URL:https://rbbn.com
+URL;TYPE=LinkedIn:https://www.linkedin.com/in/tirthankarpal/
+END:VCARD`;
+
+    const blob = new Blob([vcardData], { type: 'text/vcard;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'Tirthankar_Pal.vcf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+}
+</script>
 
 </body>
 </html>
