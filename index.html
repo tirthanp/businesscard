@@ -55,7 +55,7 @@
 
         .card-header {
             background: linear-gradient(to right, #7E00B9, #C0059E, #E90575, #FF007F) top / 100% 6px no-repeat, #ffffff;
-            padding: 16px 20px;
+            padding: 20px;
             display: flex;
             justify-content: flex-end;
             align-items: center;
@@ -63,14 +63,14 @@
         }
 
         .company-logo {
-            height: 34px;
-            max-width: 150px;
+            height: 48px;
+            max-width: 220px;
             object-fit: contain;
         }
 
         .hero-section {
             text-align: center;
-            padding: 24px 20px 12px;
+            padding: 24px 20px 14px;
         }
 
         .profile-pic {
@@ -96,40 +96,7 @@
             color: var(--accent-color);
             font-size: 15px;
             font-weight: 600;
-            margin: 0 0 18px;
-        }
-
-        .quick-actions {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            padding: 0 20px 18px;
-        }
-
-        .action-btn {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 6px;
-            background-color: #f8f9fa;
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-size: 12px;
-            font-weight: 600;
-            transition: background-color 0.15s ease;
-        }
-
-        .action-btn i {
-            font-size: 20px;
-            margin-bottom: 6px;
-            color: var(--accent-color);
-        }
-
-        .action-btn:active {
-            background-color: #e9ecef;
+            margin: 0 0 16px;
         }
 
         .btn-save-vcard {
@@ -168,19 +135,26 @@
             border: 1px solid var(--border-color);
             border-radius: 12px;
             text-decoration: none;
-            color: var(--text-muted);
+            color: var(--text-main);
             font-size: 15px;
             font-weight: 500;
+            transition: background-color 0.15s ease;
+        }
+
+        .contact-item:active {
+            background-color: #f8f9fa;
         }
 
         .contact-item i {
             color: var(--primary-color);
             font-size: 18px;
-            width: 32px;
+            width: 36px;
+            flex-shrink: 0;
         }
 
         .contact-item span {
-            word-break: break-all;
+            word-break: break-word;
+            line-height: 1.3;
         }
 
         .social-footer {
@@ -220,21 +194,6 @@
         <p class="designation">Senior Principal Product Manager</p>
     </div>
 
-    <div class="quick-actions">
-        <a href="tel:+19726921807" class="action-btn">
-            <i class="fas fa-phone"></i>
-            Call
-        </a>
-        <a href="mailto:tpal@rbbn.com" class="action-btn">
-            <i class="fas fa-envelope"></i>
-            Email
-        </a>
-        <a href="https://rbbn.com" target="_blank" class="action-btn">
-            <i class="fas fa-globe"></i>
-            Website
-        </a>
-    </div>
-
     <button class="btn-save-vcard" onclick="downloadVCard()">
         <i class="fas fa-user-plus"></i> Save to Contacts
     </button>
@@ -247,6 +206,10 @@
         <a href="tel:+19726921807" class="contact-item">
             <i class="fas fa-phone-alt"></i>
             <span>+1 (972) 692-1807</span>
+        </a>
+        <a href="https://maps.google.com/?q=6500+Chase+Oaks+Blvd,+Suite+100,+Plano,+TX+75023" target="_blank" class="contact-item">
+            <i class="fas fa-location-dot"></i>
+            <span>6500 Chase Oaks Blvd, Suite 100, Plano, TX 75023</span>
         </a>
         <a href="https://rbbn.com" target="_blank" class="contact-item">
             <i class="fas fa-globe"></i>
@@ -270,6 +233,7 @@ TITLE:Senior Principal Product Manager
 ORG:Ribbon Communications
 EMAIL;TYPE=WORK:tpal@rbbn.com
 TEL;TYPE=WORK:+19726921807
+ADR;TYPE=WORK:;;6500 Chase Oaks Blvd\\, Suite 100;Plano;TX;75023;USA
 URL:https://rbbn.com
 URL;TYPE=LinkedIn:https://www.linkedin.com/in/tirthankarpal/
 END:VCARD`;
